@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Card Wallet App</string>
+    <string name="card_empty_text">No cards available yet</string>
+</resources>
