@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cardListFragment">
+
+    <fragment
+        android:id="@+id/cardListFragment"
+        android:name="com.mreigar.cardwalletapp.cardlist.CardListFragment"
+        android:label="CardListFragment">
+
+        <action
+            android:id="@+id/action_add_card"
+            app:destination="@id/addCardFragment"
+            app:popUpTo="@id/cardListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.mreigar.cardwalletapp.addcard.AddCardFragment"
+        android:label="AddCardFragment"></fragment>
+</navigation>
