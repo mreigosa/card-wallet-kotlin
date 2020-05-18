@@ -20,8 +20,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:nextFocusDown="@+id/cardNumberInputLayout" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,7 +43,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:nextFocusDown="@+id/expiryDateInputLayout" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,8 +71,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
             android:inputType="number"
-            android:maxLength="5" />
+            android:maxLength="5"
+            android:nextFocusDown="@+id/cvvInputLayout" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,6 +93,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
             android:inputType="number"
             android:maxLength="3" />
 

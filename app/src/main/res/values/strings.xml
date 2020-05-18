@@ -6,4 +6,6 @@
     <string name="card_number">Card Number</string>
     <string name="card_expity_date">Expiry date</string>
     <string name="card_cvv">CVV</string>
+    <string name="card_list_title">My Wallet</string>
+    <string name="add_card_title">Add new card</string>
 </resources>

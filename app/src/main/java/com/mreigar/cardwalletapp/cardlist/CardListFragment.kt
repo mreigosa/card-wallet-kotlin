@@ -37,16 +37,20 @@ class CardListFragment : Fragment() {
         }
 
         viewModel.state.observe(viewLifecycleOwner, Observer {
-            handleLoader(it.isLoading)
-
-            if (it.cards.isEmpty()) cardEmptyText.visible() else {
-                cardEmptyText.gone()
-                cardAdapter.setCards(it.cards)
+            if (it.isLoading) {
+                cardListLoader.visible()
+            } else {
+                cardListLoader.gone()
+                if (it.cards.isEmpty()) {
+                    cardEmptyText.visible()
+                } else {
+                    cardEmptyText.gone()
+                    cardAdapter.setCards(it.cards)
+                }
             }
         })
 
         viewModel.loadWallet()
     }
 
-    private fun handleLoader(isLoading: Boolean) = if (isLoading) cardListLoader.visible() else cardListLoader.gone()
 }
