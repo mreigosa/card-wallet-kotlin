@@ -5,4 +5,5 @@
     <string name="card_holder">Card Holder</string>
     <string name="card_number">Card Number</string>
     <string name="card_expity_date">Expiry date</string>
+    <string name="card_cvv">CVV</string>
 </resources>

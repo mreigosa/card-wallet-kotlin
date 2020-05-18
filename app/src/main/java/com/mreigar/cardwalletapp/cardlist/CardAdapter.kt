@@ -35,6 +35,7 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(card: CardViewModel) = with(itemView) {
             itemCardNumber.text = card.number
+            itemCardIcon.setImageResource(card.iconResId)
         }
     }
 }

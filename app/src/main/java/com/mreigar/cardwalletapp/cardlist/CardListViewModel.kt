@@ -15,11 +15,7 @@ class CardListViewModel(private val repository: CardRepository) : ViewModel() {
     private val viewState = CardListViewState()
     val state: MutableLiveData<CardListViewState> = MutableLiveData(viewState)
 
-    init {
-        getWallet()
-    }
-
-    private fun getWallet() {
+    fun loadWallet() {
         state.postValue(viewState.copy(isLoading = true))
         viewModelScope.launch(Dispatchers.Main) {
             val result = withContext(Dispatchers.IO) {

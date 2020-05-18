@@ -16,18 +16,23 @@ class AddCardViewModel(private val repository: CardRepository) : ViewModel() {
 
     val state: MutableLiveData<AddCardViewState> = MutableLiveData(viewState)
 
-    fun addCardToWallet(holderName: String, cardNumber: String, expiryDate: String) {
-        state.postValue(viewState.copy(isLoading = true))
-        viewModelScope.launch(Dispatchers.Main) {
-            val result = withContext(Dispatchers.IO) {
-                repository.addCard(card = Card(holderName, cardNumber, expiryDate))
+    fun addCardToWallet(holderName: String, cardNumber: String, expiryDate: String, cvv: String) {
+        if (holderName.isEmpty() || cardNumber.isEmpty() || expiryDate.isEmpty() || cvv.isEmpty()) {
+            state.postValue(viewState.copy(emptyFieldsError = true))
+        } else {
+            state.postValue(viewState.copy(isLoading = true))
+            viewModelScope.launch(Dispatchers.Main) {
+                val result = withContext(Dispatchers.IO) {
+                    repository.addCard(card = Card(holderName, cardNumber, expiryDate, cvv))
+                }
+                state.postValue(AddCardViewState(addCardResult = result))
             }
-            state.postValue(AddCardViewState(false, result))
         }
     }
 }
 
 data class AddCardViewState(
     val isLoading: Boolean = false,
+    val emptyFieldsError: Boolean = false,
     val addCardResult: Result<Boolean>? = null
 )

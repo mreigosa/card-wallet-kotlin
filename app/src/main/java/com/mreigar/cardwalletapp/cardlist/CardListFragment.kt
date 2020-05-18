@@ -44,6 +44,8 @@ class CardListFragment : Fragment() {
                 cardAdapter.setCards(it.cards)
             }
         })
+
+        viewModel.loadWallet()
     }
 
     private fun handleLoader(isLoading: Boolean) = if (isLoading) cardListLoader.visible() else cardListLoader.gone()
