@@ -8,7 +8,8 @@ import androidx.room.PrimaryKey
 data class CardDatabaseEntity(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "number") val number: String,
-    @ColumnInfo(name = "expiry_date") val expiryDate: String
+    @ColumnInfo(name = "expiry_date") val expiryDate: String,
+    @ColumnInfo(name = "cvv") val cvv: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var cardId: Int = 0

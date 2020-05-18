@@ -28,7 +28,6 @@ class CardListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         cardAddButton.setOnClickListener {
-            //Snackbar.make(view, "Add credit card", Snackbar.LENGTH_LONG).show()
             findNavController().navigate(CardListFragmentDirections.actionAddCard())
         }
 
@@ -37,11 +36,21 @@ class CardListFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
         }
 
-        viewModel.wallet.observe(viewLifecycleOwner, Observer { data ->
-            if (data.isEmpty()) cardEmptyText.visible() else {
-                cardEmptyText.gone()
-                cardAdapter.setCards(data)
+        viewModel.state.observe(viewLifecycleOwner, Observer {
+            if (it.isLoading) {
+                cardListLoader.visible()
+            } else {
+                cardListLoader.gone()
+                if (it.cards.isEmpty()) {
+                    cardEmptyText.visible()
+                } else {
+                    cardEmptyText.gone()
+                    cardAdapter.setCards(it.cards)
+                }
             }
         })
+
+        viewModel.loadWallet()
     }
+
 }

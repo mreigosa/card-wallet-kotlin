@@ -7,17 +7,16 @@
     <fragment
         android:id="@+id/cardListFragment"
         android:name="com.mreigar.cardwalletapp.cardlist.CardListFragment"
-        android:label="CardListFragment">
+        android:label="@string/card_list_title">
 
         <action
             android:id="@+id/action_add_card"
             app:destination="@id/addCardFragment"
-            app:popUpTo="@id/cardListFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/cardListFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/addCardFragment"
         android:name="com.mreigar.cardwalletapp.addcard.AddCardFragment"
-        android:label="AddCardFragment"></fragment>
+        android:label="@string/add_card_title" />
 </navigation>
