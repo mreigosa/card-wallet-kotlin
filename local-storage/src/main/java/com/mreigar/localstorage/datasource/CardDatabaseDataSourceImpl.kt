@@ -12,14 +12,12 @@ class CardDatabaseDataSourceImpl : CardDatabaseDataSource, KoinComponent {
 
     private val database: AppDatabase by inject()
 
-    override fun getCards(): List<Card> {
+    override suspend fun getCards(): List<Card> {
         val cards = database.cardDao().getAllCards()
         return cards.map { it.toDataEntity() }
     }
 
-    override fun saveCard(card: Card) {
+    override suspend fun saveCard(card: Card) {
         database.cardDao().insertCard(card.toDatabaseEntity())
     }
-
-
 }
