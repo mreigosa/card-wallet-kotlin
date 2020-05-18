@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Card Wallet App</string>
+    <string name="card_empty_text">No cards available yet</string>
+    <string name="card_name">Name</string>
+    <string name="card_holder">Card Holder</string>
+    <string name="card_number">Card Number</string>
+    <string name="card_expity_date">Expiry date</string>
+    <string name="card_cvv">CVV</string>
+    <string name="card_list_title">My Wallet</string>
+    <string name="add_card_title">Add new card</string>
+</resources>
