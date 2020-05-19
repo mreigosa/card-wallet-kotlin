@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "91426219760",
+    "firebase_url": "https://camera-scanner-c2549.firebaseio.com",
+    "project_id": "camera-scanner-c2549",
+    "storage_bucket": "camera-scanner-c2549.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91426219760:android:e2ed1b59edc6c69493c435",
+        "android_client_info": {
+          "package_name": "com.mreigar.cardwalletapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91426219760-f572p31f2ige0ebmavtjgjljm5u5pvne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCov-WQUVRcbePAtDmTpr84svjylJhO6dE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91426219760-f572p31f2ige0ebmavtjgjljm5u5pvne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
