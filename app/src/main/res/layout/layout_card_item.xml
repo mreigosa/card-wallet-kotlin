@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="90dp">
 
     <ImageView
         android:id="@+id/itemCardIcon"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
         android:layout_marginStart="@dimen/margin_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +29,17 @@
         app:layout_constraintStart_toEndOf="@id/itemCardIcon"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1111 2222 3333 4444" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="@dimen/margin_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_chevron_right"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:tint="@color/paleGrey"/>
 
     <View
         android:id="@+id/view"
