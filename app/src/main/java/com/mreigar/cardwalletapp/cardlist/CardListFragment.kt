@@ -18,7 +18,9 @@ class CardListFragment : Fragment() {
 
     private val viewModel: CardListViewModel by viewModel()
 
-    private val cardAdapter = CardAdapter()
+    private val cardAdapter = CardAdapter {
+        findNavController().navigate(CardListFragmentDirections.actionCardDetails(it))
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_card_list, container, false)

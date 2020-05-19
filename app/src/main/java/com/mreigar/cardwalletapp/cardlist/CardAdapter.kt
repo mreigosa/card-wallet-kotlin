@@ -8,7 +8,9 @@ import com.mreigar.cardwalletapp.R
 import com.mreigar.cardwalletapp.model.CardViewModel
 import kotlinx.android.synthetic.main.layout_card_item.view.*
 
-class CardAdapter : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+class CardAdapter(
+    private val listener: (CardViewModel) -> Unit
+) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
 
     private var items: MutableList<CardViewModel> = mutableListOf()
 
@@ -29,13 +31,17 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], listener)
     }
 
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(card: CardViewModel) = with(itemView) {
+
+        fun bind(card: CardViewModel, listener: (CardViewModel) -> Unit) = with(itemView) {
             itemCardNumber.text = card.number
             itemCardIcon.setImageResource(card.iconResId)
+            setOnClickListener {
+                listener.invoke(card)
+            }
         }
     }
 }

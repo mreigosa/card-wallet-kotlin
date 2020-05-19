@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/cardListFragment">
 
     <fragment
         android:id="@+id/cardListFragment"
         android:name="com.mreigar.cardwalletapp.cardlist.CardListFragment"
-        android:label="@string/card_list_title">
+        android:label="@string/card_list_title"
+        tools:layout="@layout/fragment_card_list">
 
         <action
             android:id="@+id/action_add_card"
             app:destination="@id/addCardFragment"
             app:popUpTo="@id/cardListFragment" />
+
+        <action
+            android:id="@+id/action_card_details"
+            app:destination="@id/cardDetailsFragment"
+            app:popUpTo="@id/cardListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cardDetailsFragment"
+        android:name="com.mreigar.cardwalletapp.carddetails.CardDetailsFragment"
+        android:label="@string/card_details_title"
+        tools:layout="@layout/fragment_card_details">
+
+        <argument
+            android:name="cardViewModel"
+            app:argType="com.mreigar.cardwalletapp.model.CardViewModel" />
     </fragment>
 
     <fragment
         android:id="@+id/addCardFragment"
         android:name="com.mreigar.cardwalletapp.addcard.AddCardFragment"
-        android:label="@string/add_card_title">
+        android:label="@string/add_card_title"
+        tools:layout="@layout/fragment_add_card">
 
         <action
             android:id="@+id/action_scan_card"
@@ -29,5 +48,6 @@
     <fragment
         android:id="@+id/scanCardFragment"
         android:name="com.mreigar.cardwalletapp.addcard.ScanCardFragment"
-        android:label="@string/scan_card_title" />
+        android:label="@string/scan_card_title"
+        tools:layout="@layout/fragment_scan_card" />
 </navigation>
