@@ -8,4 +8,5 @@
     <string name="card_cvv">CVV</string>
     <string name="card_list_title">My Wallet</string>
     <string name="add_card_title">Add new card</string>
+    <string name="scan_card_title">Scan card</string>
 </resources>

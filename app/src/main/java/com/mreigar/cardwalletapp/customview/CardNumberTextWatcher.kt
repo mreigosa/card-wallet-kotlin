@@ -17,14 +17,15 @@ class CardNumberTextWatcher(private val cardIcon: ImageView) : TextWatcher {
     override fun afterTextChanged(s: Editable) {
         if (s.toString() != current) {
             val userInput = s.toString().replace(nonDigits, "")
+
             if (userInput.length <= CARD_NUMBER_MAX_LENGTH) {
                 current = userInput.chunked(4).joinToString(" ")
                 s.filters = arrayOfNulls<InputFilter>(0)
             }
+
             s.replace(0, s.length, current, 0, current.length)
 
-            if (userInput.length == CARD_NUMBER_MAX_LENGTH)
-                cardIcon.setImageResource(CardUtils.getCardIcon(userInput))
+            cardIcon.setImageResource(CardUtils.getCardIcon(userInput))
         }
     }
 
