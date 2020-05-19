@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -32,15 +31,6 @@ class AddCardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
-//            findNavController().navigateUp()
-//        }
-
-
-//            .addCallback(viewLifecycleOwner) {
-//            findNavController().popBackStack()
-//        }
-
         cardNumberInputLayout.editText?.addTextChangedListener(CardNumberTextWatcher(cardImage))
         expiryDateInputLayout.editText?.addTextChangedListener(CardDateTextWatcher())
 
@@ -53,10 +43,20 @@ class AddCardFragment : Fragment() {
             )
         }
 
+        scanCardButton.setOnClickListener {
+            findNavController().navigate(AddCardFragmentDirections.actionScanCard())
+        }
+
         viewModel.state.observe(viewLifecycleOwner, Observer {
             handleLoader(it.isLoading)
-
             handleResult(it.addCardResult)
+        })
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<ScannedCardData>("scannedCardKey")?.observe(viewLifecycleOwner, Observer { scannedCardData ->
+            scannedCardData?.let {
+                cardNumberText.setText(scannedCardData.number)
+                expiryDateInputLayout.editText?.setText(scannedCardData.expiryDate)
+            }
         })
     }
 

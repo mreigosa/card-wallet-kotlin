@@ -18,5 +18,16 @@
     <fragment
         android:id="@+id/addCardFragment"
         android:name="com.mreigar.cardwalletapp.addcard.AddCardFragment"
-        android:label="@string/add_card_title" />
+        android:label="@string/add_card_title">
+
+        <action
+            android:id="@+id/action_scan_card"
+            app:destination="@id/scanCardFragment"
+            app:popUpTo="@id/addCardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scanCardFragment"
+        android:name="com.mreigar.cardwalletapp.addcard.ScanCardFragment"
+        android:label="@string/scan_card_title" />
 </navigation>
